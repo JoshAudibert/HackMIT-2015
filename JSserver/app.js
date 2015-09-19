@@ -59,7 +59,7 @@ app.post("/friends/newFriend/:user/:newFriend", function(req, res)
 app.post("/alarms/newAlarm/:user/:year/:month/:day/:hour/:minute", function(req, res)
 {
 	var query = {"_id": user};
-	
+//incomplete	
 });
 
 http.createServer(app).listen(app.get("port"), function()
