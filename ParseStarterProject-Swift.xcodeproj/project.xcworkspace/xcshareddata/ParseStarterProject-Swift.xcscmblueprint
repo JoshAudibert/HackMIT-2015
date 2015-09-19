@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9DF3A86058DB9F56FB3F3E41F63484BF2E163534",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9DF3A86058DB9F56FB3F3E41F63484BF2E163534" : 0,
+    "B73659E971B6047DEF680F099B7E1942A58B665F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5FDCBAB8-3453-451D-AA02-67022802CA8F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9DF3A86058DB9F56FB3F3E41F63484BF2E163534" : "HackMIT-2015\/",
+    "B73659E971B6047DEF680F099B7E1942A58B665F" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ParseStarterProject-Swift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ParseStarterProject-Swift.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JoshAudibert\/HackMIT-2015.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9DF3A86058DB9F56FB3F3E41F63484BF2E163534"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lizziew\/swift_playground",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B73659E971B6047DEF680F099B7E1942A58B665F"
+    }
+  ]
+}
