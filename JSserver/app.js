@@ -18,7 +18,7 @@ app.set("port", process.env.PORT || 8000);
 
 app.get("/friends/:user", function (req, res)
 {
-	var query = {"ObjectId": user["ObjectId]};
+	var query = {"ObjectId": user["ObjectId"]};
 
 	users.find(query).toArray(function(err, found)
 	{
