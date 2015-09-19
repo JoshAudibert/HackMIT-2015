@@ -28,6 +28,15 @@ class AlarmListViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+	override func viewDidLayoutSubviews() 
+	{
+		var viewbounds = self.view.bounds
+		let topBarOffset = self.topLayoutGuide.length
+		viewbounds.origin.y = topBarOffset * -1
+		self.view.bounds = viewbounds
+	}
+
+
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
