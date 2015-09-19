@@ -11,9 +11,8 @@ MongoClient.connect("mongodb://localhost:27017", function(err, db)
 	
 	users = db.collection("users");
 });
-var bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.set("port", process.env.PORT || 8000);	
+
+app.set("port", process.env.PORT || 8080);
 
 
 app.get("/friends/:user", function (req, res)
