@@ -16,31 +16,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Alarm: 6:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1v-06-QWY">
-                                <rect key="frame" x="220" y="289" width="160" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDJ-iQ-CWF">
-                                <rect key="frame" x="267" y="350" width="67" height="30"/>
+                                <rect key="frame" x="267" y="411.5" width="67" height="30"/>
                                 <state key="normal" title="All alarms"/>
                                 <connections>
                                     <segue destination="Slk-IF-yKg" kind="show" id="nQg-wb-Q8c"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Alarm: 6:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1v-06-QWY">
+                                <rect key="frame" x="220" y="351" width="159.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6n-VZ-uLO">
+                                <rect key="frame" x="261" y="289" width="79" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepic" translatesAutoresizingMaskIntoConstraints="NO" id="6gg-B4-2Zy">
+                                <rect key="frame" x="191" y="58" width="218" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="187" id="8mJ-QJ-GJW"/>
+                                    <constraint firstAttribute="width" constant="218" id="wlr-oZ-vnj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="R6n-VZ-uLO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CDe-T7-xOu"/>
+                            <constraint firstItem="q1v-06-QWY" firstAttribute="top" secondItem="R6n-VZ-uLO" secondAttribute="bottom" constant="41" id="FR6-jq-gVJ"/>
                             <constraint firstItem="q1v-06-QWY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K3S-9d-hSN"/>
+                            <constraint firstItem="q1v-06-QWY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N9x-jf-JhX"/>
                             <constraint firstItem="wDJ-iQ-CWF" firstAttribute="top" secondItem="q1v-06-QWY" secondAttribute="bottom" constant="40" id="SeM-2H-I4D"/>
+                            <constraint firstItem="R6n-VZ-uLO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YaO-b4-f1v"/>
+                            <constraint firstItem="R6n-VZ-uLO" firstAttribute="top" secondItem="6gg-B4-2Zy" secondAttribute="bottom" constant="44" id="Zdc-tX-cbH"/>
+                            <constraint firstItem="6gg-B4-2Zy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eBh-TS-LHo"/>
+                            <constraint firstItem="q1v-06-QWY" firstAttribute="top" secondItem="6gg-B4-2Zy" secondAttribute="bottom" constant="27" id="hiT-Nw-alW"/>
                             <constraint firstItem="q1v-06-QWY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rZl-pi-lyn"/>
                             <constraint firstItem="wDJ-iQ-CWF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vY9-hP-CSh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="K3S-9d-hSN"/>
+                                <exclude reference="hiT-Nw-alW"/>
+                                <exclude reference="rZl-pi-lyn"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="580" y="310"/>
         </scene>
         <!--Alarm List View Controller-->
         <scene sceneID="aBC-Yq-YzI">
@@ -74,4 +102,7 @@
             <point key="canvasLocation" x="445" y="1094"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profilepic" width="1024" height="768"/>
+    </resources>
 </document>
