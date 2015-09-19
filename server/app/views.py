@@ -5,9 +5,8 @@ import json
 import datetime
 from pymongo import MongoClient
 
-client = MongoClient("colab-sbx-280.oit.duke.edu", 27017)
+client = MongoClient("mongodb://colab-sbx-280.oit.duke.edu:27017")
 db = client.hackmit
-
 users = db.users
 
 

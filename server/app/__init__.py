@@ -15,7 +15,7 @@ db = client.hackmit
 
 
 
-app.config["MONGO_HOST"] = "colab-sbx-280.oit.duke.edu"
+app.config["MONGO_HOST"] = "mongodb://colab-sbx-280.oit.duke.edu:27107"
 app.config["MONGO_PORT"] = 27017
 app.config["MONGO_DBNAME"] = "hackmit"
 mongo = PyMongo(app)
