@@ -16,6 +16,20 @@ app.use(bodyParser.json());
 app.set("port", process.env.PORT || 8000);	
 
 
+app.get("/friends/:user", function (req, res)
+{
+	var query = {"ObjectId": user["ObjectId]};
+
+	users.find(query).toArray(function(err, found)
+	{
+		if (err) throw err;
+
+		return found;
+	});
+});
+
+
+
 
 http.createServer(app).listen(app.get("port"), function()
 {
