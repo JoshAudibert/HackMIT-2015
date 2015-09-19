@@ -49,16 +49,27 @@ class AlarmListViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("alarmcell", forIndexPath: indexPath)
-
-        print("got here")
         
         cell.textLabel?.text = self.alarmsData[indexPath.row].time
+        
+        var subtitle = ""
+        for friend in self.alarmsData[indexPath.row].friends {
+            subtitle += (friend + ", ")
+        }
+        
+        print(subtitle)
+        cell.detailTextLabel?.text = "hello"
+    
+        
+        //cell.detailTextLabel?.text = "with " + subtitle
 
+        print("\(cell.detailTextLabel?.text)")
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row))!")
+        print("You selected cell #\(indexPath.row)!")
     }
 
     /*
