@@ -15,11 +15,63 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Alarm: 6:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1v-06-QWY">
+                                <rect key="frame" x="220" y="289" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDJ-iQ-CWF">
+                                <rect key="frame" x="267" y="350" width="67" height="30"/>
+                                <state key="normal" title="All alarms"/>
+                                <connections>
+                                    <segue destination="Slk-IF-yKg" kind="show" id="nQg-wb-Q8c"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q1v-06-QWY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K3S-9d-hSN"/>
+                            <constraint firstItem="wDJ-iQ-CWF" firstAttribute="top" secondItem="q1v-06-QWY" secondAttribute="bottom" constant="40" id="SeM-2H-I4D"/>
+                            <constraint firstItem="q1v-06-QWY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rZl-pi-lyn"/>
+                            <constraint firstItem="wDJ-iQ-CWF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vY9-hP-CSh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Alarm List View Controller-->
+        <scene sceneID="aBC-Yq-YzI">
+            <objects>
+                <tableViewController id="Slk-IF-yKg" customClass="AlarmListViewController" customModule="SocialAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3IK-f7-KYv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmcell" id="6jc-fe-rVR">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6jc-fe-rVR" id="y1y-GY-G6S">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Slk-IF-yKg" id="M2l-6G-aMf"/>
+                            <outlet property="delegate" destination="Slk-IF-yKg" id="1fw-8H-izo"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="alarmsView" destination="3IK-f7-KYv" id="loX-pa-7Zx"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ula-JL-TfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445" y="1094"/>
         </scene>
     </scenes>
 </document>

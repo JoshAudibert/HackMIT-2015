@@ -14,6 +14,7 @@
 		83EC47091BADDA77002741E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EC47071BADDA77002741E0 /* LaunchScreen.storyboard */; };
 		83EC47141BADDA77002741E0 /* SocialAlarmClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC47131BADDA77002741E0 /* SocialAlarmClockTests.swift */; };
 		83EC471F1BADDA77002741E0 /* SocialAlarmClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC471E1BADDA77002741E0 /* SocialAlarmClockUITests.swift */; };
+		83EC472D1BADDD94002741E0 /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC472C1BADDD94002741E0 /* AlarmListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		83EC471A1BADDA77002741E0 /* SocialAlarmClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialAlarmClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EC471E1BADDA77002741E0 /* SocialAlarmClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAlarmClockUITests.swift; sourceTree = "<group>"; };
 		83EC47201BADDA77002741E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83EC472C1BADDD94002741E0 /* AlarmListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				83EC46FE1BADDA77002741E0 /* AppDelegate.swift */,
 				83EC47001BADDA77002741E0 /* ViewController.swift */,
 				83EC47021BADDA77002741E0 /* Main.storyboard */,
+				83EC472C1BADDD94002741E0 /* AlarmListViewController.swift */,
 				83EC47051BADDA77002741E0 /* Assets.xcassets */,
 				83EC47071BADDA77002741E0 /* LaunchScreen.storyboard */,
 				83EC470A1BADDA77002741E0 /* Info.plist */,
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83EC47011BADDA77002741E0 /* ViewController.swift in Sources */,
+				83EC472D1BADDD94002741E0 /* AlarmListViewController.swift in Sources */,
 				83EC46FF1BADDA77002741E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +487,7 @@
 				83EC47251BADDA77002741E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83EC47261BADDA77002741E0 /* Build configuration list for PBXNativeTarget "SocialAlarmClockTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +496,7 @@
 				83EC47281BADDA77002741E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83EC47291BADDA77002741E0 /* Build configuration list for PBXNativeTarget "SocialAlarmClockUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +505,7 @@
 				83EC472B1BADDA77002741E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
