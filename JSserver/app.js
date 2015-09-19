@@ -12,7 +12,7 @@ MongoClient.connect("mongodb://localhost:27017", function(err, db)
 	users = db.collection("users");
 });
 
-app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 8000);
 
 
 app.get("/friends/:user", function (req, res)
@@ -26,6 +26,16 @@ app.get("/friends/:user", function (req, res)
 		return found;
 	});
 });
+
+
+app.get("/", function (req, res)
+{
+	
+		console.log("hi");
+		res.send("hello");
+
+});
+
 
 
 
