@@ -5,19 +5,20 @@ var express = require ("express"),
 
 var users;
 
-MongoClient.connect("mongodb://http://colab-sbx-280.oit.duke.edu:27017", function(err, db)
+MongoClient.connect("mongodb://colab-sbx-280.oit.duke.edu:27017/hackmit", function(err, db)
 {
 	if (err) throw err;
 	
 	users = db.collection("users");
 });
 
-app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 8000);
 
-app.get("api/users",function(req,res) 
+app.get("/api/users",function(req,res) 
 {
 	res.send(users.find().toArray());
 });
+
 // all variables in URL are ObjectIds. 
 app.get("/friends/:user", function (req, res)
 {
