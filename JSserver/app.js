@@ -1,6 +1,7 @@
 var express = require ("express"),
 app = express(),
 MongoClient = require("mongodb").MongoClient,
+ObjectId = require('mongodb').ObjectID,
 http = require("http"),
 request=require('request'); 
 var users;
@@ -60,8 +61,12 @@ app.get("/api/friends/:user", function (req, res)
 {
 	users.find(function(err, cursor)
 	{
-		var query = {"_id": req.params.user};
-		console.log(query);
+
+
+
+
+		var query = {"_id": ObjectId(req.params.user)};
+
 		users.find(query).toArray(function(err, found)
 		{
 			if (err) throw err;
