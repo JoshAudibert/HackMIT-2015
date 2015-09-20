@@ -1,12 +1,11 @@
 var express = require ("express"),
 app = express(),
 MongoClient = require("mongodb").MongoClient,
-http = require("http");
-var request=require('request');
-
+http = require("http"),
+request=require('request'); 
 var users;
 
-MongoClient.connect("mongodb://root:root@ds041673.mongolab.com:41673/hackmit", function(err, db)
+MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", function(err, db)
 {
 	if (err) throw err;
 	users = db.collection("users");
@@ -15,18 +14,13 @@ MongoClient.connect("mongodb://root:root@ds041673.mongolab.com:41673/hackmit", f
 	console.log(db);
 });
 
-app.set("port", process.env.PORT || 8080);
-
-app.get("/api/users",function(req,res) 
-{
-	res.send(users.find().toArray(function(err,found)
-		{
-		if (err) throw err;
-		return found;
-		}));
-});
+app.set("port", process.env.PORT || 8080); 
 
 app.get("/api/hardware/buzz", function(req, res){
+/*
+/api/hardware/buzz
+Physically toggles the lights and buzzing on the Particle Photon hardware device
+*/
 request.post(
     'https://api.particle.io/v1/devices/1d0026000647343339373536/led?access_token=97bbe3755d84dc951179331beacf98cb93b4b6b0',
     { form: { 'args': 'toggle' } },
@@ -45,12 +39,13 @@ app.get("/api/test",function(req,res)
 	
 	users.find(function(err, cursor)
 	{
-		res.send(users.find().toArray(function(error,found){
+		users.find().toArray(function(error,found){
 			if (err) throw err;
 			console.log("found");
 			console.log(found);
+			res.send(found);
 			return found;
-		}))
+		})
 	});
 
 
