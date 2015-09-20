@@ -5,7 +5,7 @@ var express = require ("express"),
 
 var users;
 
-MongoClient.connect("mongodb://localhost:27017", function(err, db)
+MongoClient.connect("mongodb://http://colab-sbx-280.oit.duke.edu:27017", function(err, db)
 {
 	if (err) throw err;
 	
@@ -14,6 +14,10 @@ MongoClient.connect("mongodb://localhost:27017", function(err, db)
 
 app.set("port", process.env.PORT || 8080);
 
+app.get("api/users",function(req,res) 
+{
+	res.send(users.find().toArray());
+});
 // all variables in URL are ObjectIds. 
 app.get("/friends/:user", function (req, res)
 {
