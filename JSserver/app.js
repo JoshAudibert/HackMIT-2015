@@ -24,7 +24,10 @@ app.get("/buzz", function(req, res)
 
 ////////////////////
 
-
+app.get("/gotit", function(req, res)
+{
+	console.log("gotit");
+});
 
 
 
