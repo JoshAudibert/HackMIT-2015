@@ -3,9 +3,10 @@ app = express(),
 MongoClient = require("mongodb").MongoClient,
 ObjectID = require('mongodb').ObjectID,
 http = require("http"),
-request=require('request')
-var SSE=require('server-event'); 
+request=require('request') 
 var users;
+var events=require('events')
+var eventEmitter=new events.EventEmitter();
 
 MongoClient.connect("mongodb://localhost:27017/", function(err, db)
 //MongoClient.connect("mongodb://colab-sbx-280.oit.duke.edu:27017/hackmit?connectTimeoutMS=300000", function(err, db)
@@ -17,19 +18,24 @@ MongoClient.connect("mongodb://localhost:27017/", function(err, db)
 	console.log(users);
 	console.log(db);
 });
-var serverS;
+
 var sendFunc;
 app.set("port", process.env.PORT || 8080); 
 app.use(express.static('static'));
+app.get("/stream", function(req,res){
+	res.writeHead(200, { 'Content-Type': 'text/event-stream' });
 
-app.get("/stream",SSE,function(req, res){
-	sendFunc=function(res){
-		res.sse('test','test2');
-	};
+function writeHandler(){
+		res.write('data: hello\n\n');
+		console.log("written");
+};
+	eventEmitter.on('boom',writeHandler);	
 });
 app.get("/send",function(req,res){
-	sendFunc();
-	});
+	eventEmitter.emit('boom');
+	
+});
+
 // BEGIN ROUTES
 app.get("/api/hardware/buzz", function(req, res){
 	/*
@@ -83,6 +89,9 @@ app.get("/api/users",function(req,res)
 	});	
 }); 
 
+app.get("/api/notify", function (req,res){
+	// tell front end	
+});
 // all variables in URL are ObjectIds. 
 app.get("/api/friends/:user", function (req, res)
 {
