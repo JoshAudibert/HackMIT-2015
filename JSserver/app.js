@@ -1,6 +1,6 @@
 var express = require ("express"),
 	app = express(),
-	MongoClient = require("mongodb"),
+	MongoClient = require("mongodb").MongoClient,
 	http = require("http");
 
 var users;
@@ -9,13 +9,38 @@ MongoClient.connect("mongodb://root:root@ds041673.mongolab.com:41673/hackmit", f
 {
 	if (err) throw err;
 	users = db.collection("users");
+	console.log(err);
+	console.log(users);
+	console.log(db);
 });
 
 app.set("port", process.env.PORT || 8080);
 
 app.get("/api/users",function(req,res) 
 {
-	res.send(users.find().toArray());
+	res.send(users.find().toArray(function(err,found)
+		{
+		if (err) throw err;
+		return found;
+		}));
+});
+app.get("/api/test",function(req,res)
+{
+
+	
+	users.find(function(err, cursor)
+	{
+		res.send(users.find().toArray(function(error,found){
+			if (err) throw err;
+			console.log("found");
+			console.log(found);
+			return found;
+		}))
+	});
+
+
+
+	
 });
 
 // all variables in URL are ObjectIds. 
