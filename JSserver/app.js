@@ -3,7 +3,8 @@ app = express(),
 MongoClient = require("mongodb").MongoClient,
 ObjectID = require('mongodb').ObjectID,
 http = require("http"),
-request=require('request'); 
+request=require('request')
+var SSE=require('sse-nodejs'); 
 var users;
 
 MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", function(err, db)
@@ -15,10 +16,16 @@ MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", 
 	console.log(users);
 	console.log(db);
 });
-
+var serverS;
 app.set("port", process.env.PORT || 8080); 
 app.use(express.static('static'));
 
+app.get("/stream",function(req, res){
+	serverS=SSE(res);
+});
+app.get("/send",function(req,res){
+	serverS.sendEvent('time','Hello');
+});
 // BEGIN ROUTES
 app.get("/api/hardware/buzz", function(req, res){
 	/*
