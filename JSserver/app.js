@@ -17,7 +17,9 @@ MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", 
 });
 
 app.set("port", process.env.PORT || 8080); 
+app.use(express.static('static'));
 
+// BEGIN ROUTES
 app.get("/api/hardware/buzz", function(req, res){
 	/*
 	/api/hardware/buzz
