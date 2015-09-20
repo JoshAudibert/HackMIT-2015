@@ -2,6 +2,8 @@
 	"dependencies":
 	{
 		"express": "4.12.4",
-		"mongodb": "2.0.35"
+		"mongodb": "2.0.35", 
+		"request": ""
+
 	}
 }
