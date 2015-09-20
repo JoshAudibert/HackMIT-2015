@@ -88,6 +88,7 @@
         <string>fbapi</string>
         <string>fb-messenger-api</string>
         <string>fbauth2</string>
+        <string>fbauth</string>
         <string>fbshareextension</string>
     </array>
     <key>NSAppTransportSecurity</key>
