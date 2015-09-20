@@ -56,8 +56,9 @@ app.get("/api/friends/:user", function (req, res)
 	users.find(function(err, cursor)
 	{ 
 		var query = {"_id": new ObjectID(req.params.user)};
+		var projection = {"_id": false, "friends": true};
 
-		users.find(query).toArray(function(err, found)
+		users.find(query, projection).toArray(function(err, found)
 		{
 			if (err) throw err;
 			console.log(req.params.user);
