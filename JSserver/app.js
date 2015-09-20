@@ -1,7 +1,7 @@
 var express = require ("express"),
 app = express(),
 MongoClient = require("mongodb").MongoClient,
-ObjectId = require('mongodb').ObjectID,
+ObjectID = require('mongodb').ObjectID,
 http = require("http"),
 request=require('request'); 
 var users;
@@ -48,24 +48,14 @@ app.get("/api/users",function(req,res)
 			return found;
 		})
 	});	
-});
-
-
-	
-
-
-
+}); 
 
 // all variables in URL are ObjectIds. 
 app.get("/api/friends/:user", function (req, res)
 {
 	users.find(function(err, cursor)
-	{
-
-
-
-
-		var query = {"_id": ObjectId(req.params.user)};
+	{ 
+		var query = {"_id": new ObjectID(req.params.user)};
 
 		users.find(query).toArray(function(err, found)
 		{
