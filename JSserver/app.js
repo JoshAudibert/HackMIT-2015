@@ -5,7 +5,7 @@ var express = require ("express"),
 
 var users;
 
-MongoClient.connect("mongodb://colab-sbx-280.oit.duke.edu:27017/hackmit?connectTimeoutMS=300000", function(err, db)
+MongoClient.connect("mongodb://root:root@ds041673.mongolab.com:41673/hackmit", function(err, db)
 {
 	if (err) throw err;
 	users = db.collection("users");
