@@ -20,7 +20,68 @@ class NewAlarmViewController: UIViewController {
         let minutes = components.minute
         print("\(hour) : \(minutes)")
         print(friendInput.text!)
+        
+        let notification = UILocalNotification()
+        notification.alertBody = "Wake up!"
+        let currcomponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+        let currhour = currcomponents.hour
+        let currminutes = currcomponents.minute
+        let timediff = Double(hour-currhour) * 60.0 * 60.0 + Double(minutes - currminutes) * 60.0
+        notification.fireDate = NSDate(timeIntervalSinceReferenceDate: timediff)
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        //sends get request at alarm time.
+        let alarm = calendar.dateFromComponents(components)
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock() {
+            while alarm!.compare(NSDate()) == NSComparisonResult.OrderedDescending
+            {
+                //stall
+            }
+            NSOperationQueue.mainQueue().addOperationWithBlock{
+                //get the buzzer to go off
+                self.toggle()
+                
+                //popup alert
+                
+                let alertController = UIAlertController(title: "Buzz", message: "Wake up", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Shut up.", style: UIAlertActionStyle.Default, handler: {action in
+                    self.toggle()}
+                ))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            }
+        }
     }
+    
+    func toggle()
+    {
+        let url = NSURL(string: "http://hackmit.suyash.io/api/hardware/buzz")
+        let session = NSURLSession.sharedSession()
+        
+        let dataTask = session.dataTaskWithURL(url!) {(data, response, error) in
+            if let data2 = data
+            {
+                print(NSString(data: data2, encoding: NSUTF8StringEncoding))
+            }
+        }
+        dataTask!.resume()
+    }
+    
+    @IBAction func Toggle() {
+        let url = NSURL(string: "http://hackmit.suyash.io/api/hardware/buzz")
+        let session = NSURLSession.sharedSession()
+        
+        let dataTask = session.dataTaskWithURL(url!) {(data, response, error) in
+            if let data2 = data
+            {
+                print(NSString(data: data2, encoding: NSUTF8StringEncoding))
+            }
+        }
+        dataTask!.resume()
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +95,8 @@ class NewAlarmViewController: UIViewController {
     
     func dismissKeyboard() {
         self.friendInput.resignFirstResponder()
-        
     }
+    
 
     /*
     // MARK: - Navigation
@@ -47,4 +108,22 @@ class NewAlarmViewController: UIViewController {
     }
     */
 
+}
+
+extension String
+{
+    func toDateTime() -> NSDate
+    {
+        //Create Date Formatter
+        let dateFormatter = NSDateFormatter()
+        
+        //Specify Format of String to Parse
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx"
+        
+        //Parse into NSDate
+        let dateFromString : NSDate = dateFormatter.dateFromString(self)!
+        
+        //Return Parsed Date
+        return dateFromString
+    }
 }
