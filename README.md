@@ -1,9 +1,5 @@
-# HackMIT-2015
+# HackMIT-2015--Social Alarm Clock
+By Elizabeth, Suyash, Grace, & Josh
 
-AppDelegate.swift
-
-in application:didFinishLaunchingWithOptions:
-```
-Parse.setApplicationId("pMaxV17PJyK9UkK3SK48PUAtwzCEx96lN8xVXtdR", 
-  clientKey: "bMqfZY0Ibf9VJSCWtO0iRmwUNTLfDBuRLIS1aSMt")
+An alarm clock application that alerts a preselected list of friends if a user fails to wake up to their alarm. These friends have unique context on their friend's obligations and can choose to take some number of additional actions to wake up the user (and/or remind the user why waking up is important in this circumstance)...[continue]
 ```
