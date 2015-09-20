@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vt5-53-z3U">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -58,6 +59,10 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" selectedImage="home" id="bP5-xh-7As"/>
+                    <connections>
+                        <outlet property="profileImage" destination="6gg-B4-2Zy" id="Bzh-aC-WtN"/>
+                        <outlet property="usernameLabel" destination="R6n-VZ-uLO" id="H97-5k-QS0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,25 +148,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Rj-42-7MY">
-                                <rect key="frame" x="20" y="192" width="560" height="216"/>
+                                <rect key="frame" x="20" y="127.5" width="560" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="464387973.604289">
                                     <!--2015-09-19 20:39:33 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIu-HF-zvl">
-                                <rect key="frame" x="266" y="158" width="68" height="20.5"/>
+                                <rect key="frame" x="266" y="99.5" width="68" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEK-xt-Eds">
-                                <rect key="frame" x="254" y="65" width="92" height="20.5"/>
+                                <rect key="frame" x="254" y="20" width="92" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input your friends' names" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBc-jI-Sbi">
+                                <rect key="frame" x="208" y="61.5" width="185" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q5-hC-HPr">
-                                <rect key="frame" x="261" y="470" width="78" height="30"/>
+                                <rect key="frame" x="261" y="351" width="78" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="Add alarm">
@@ -176,27 +186,36 @@
                                     <action selector="addAlarm:" destination="Abc-07-tcc" eventType="touchUpInside" id="WsN-48-oeY"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Input your friends' names" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBc-jI-Sbi">
-                                <rect key="frame" x="208" y="107" width="185" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6q5-hC-HPr" firstAttribute="top" secondItem="6Rj-42-7MY" secondAttribute="bottom" constant="7.5" id="1fa-0E-I0Z"/>
                             <constraint firstItem="6q5-hC-HPr" firstAttribute="centerX" secondItem="59X-Kd-aZb" secondAttribute="centerX" id="8Pq-dC-7fp"/>
+                            <constraint firstItem="6Rj-42-7MY" firstAttribute="top" secondItem="VIu-HF-zvl" secondAttribute="bottom" constant="7.5" id="9JL-4r-j9S"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Rj-42-7MY" secondAttribute="trailing" id="BAu-Yn-CKg"/>
+                            <constraint firstItem="XEK-xt-Eds" firstAttribute="top" secondItem="0r6-vv-3nc" secondAttribute="bottom" id="BtU-xg-Irt"/>
                             <constraint firstItem="6Rj-42-7MY" firstAttribute="leading" secondItem="59X-Kd-aZb" secondAttribute="leadingMargin" id="Ezi-e8-mxF"/>
                             <constraint firstItem="6Rj-42-7MY" firstAttribute="centerX" secondItem="59X-Kd-aZb" secondAttribute="centerX" id="IqL-ym-fed"/>
                             <constraint firstItem="tBc-jI-Sbi" firstAttribute="top" secondItem="XEK-xt-Eds" secondAttribute="bottom" constant="21" id="Jgo-Q9-XhC"/>
                             <constraint firstItem="VIu-HF-zvl" firstAttribute="centerX" secondItem="59X-Kd-aZb" secondAttribute="centerX" id="ZvL-kQ-2eH"/>
                             <constraint firstItem="tBc-jI-Sbi" firstAttribute="centerX" secondItem="59X-Kd-aZb" secondAttribute="centerX" id="b1K-Wu-K9C"/>
                             <constraint firstItem="VIu-HF-zvl" firstAttribute="top" secondItem="tBc-jI-Sbi" secondAttribute="bottom" constant="21.5" id="cET-HO-bw5"/>
+                            <constraint firstItem="VIu-HF-zvl" firstAttribute="top" secondItem="tBc-jI-Sbi" secondAttribute="bottom" constant="8" id="g0V-K7-bcF"/>
                             <constraint firstItem="6Rj-42-7MY" firstAttribute="centerY" secondItem="59X-Kd-aZb" secondAttribute="centerY" id="kmL-4j-Bks"/>
+                            <constraint firstItem="XEK-xt-Eds" firstAttribute="top" secondItem="0r6-vv-3nc" secondAttribute="bottom" constant="-10" id="ky7-FJ-oxN"/>
                             <constraint firstItem="6Rj-42-7MY" firstAttribute="top" secondItem="VIu-HF-zvl" secondAttribute="bottom" constant="13" id="nEt-Sj-dkQ"/>
                             <constraint firstItem="6q5-hC-HPr" firstAttribute="top" secondItem="6Rj-42-7MY" secondAttribute="bottom" constant="62" id="wTq-7c-Sag"/>
                             <constraint firstItem="XEK-xt-Eds" firstAttribute="centerX" secondItem="59X-Kd-aZb" secondAttribute="centerX" id="z84-Lf-688"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kmL-4j-Bks"/>
+                                <exclude reference="nEt-Sj-dkQ"/>
+                                <exclude reference="ky7-FJ-oxN"/>
+                                <exclude reference="cET-HO-bw5"/>
+                                <exclude reference="wTq-7c-Sag"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Alarm" id="Xac-5F-iNv"/>
                     <connections>
@@ -206,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIM-9i-CjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="1177"/>
+            <point key="canvasLocation" x="580" y="1058"/>
         </scene>
     </scenes>
     <resources>
