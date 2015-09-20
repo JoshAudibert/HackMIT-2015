@@ -8,7 +8,8 @@ var users;
 var events=require('events')
 var eventEmitter=new events.EventEmitter();
 
-MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", function(err, db)
+MongoClient.connect("mongodb://localhost:27017/", function(err, db)
+//MongoClient.connect("mongodb://colab-sbx-280.oit.duke.edu:27017/hackmit?connectTimeoutMS=300000", function(err, db)
 {
 	console.log(err)
 	if (err) throw err;
@@ -53,8 +54,28 @@ app.get("/api/hardware/buzz", function(req, res){
 	    }
 	);
 });
+app.set("port", process.env.PORT || 8000);
 
-app.get("/api/users",function(req,res)
+
+////////////////////
+/// Buzz...
+
+app.get("/buzz", function(req, res)
+{
+	res.send("{'message': 'buzz'}");
+});
+
+
+////////////////////
+
+app.get("/gotit", function(req, res)
+{
+	console.log("gotit");
+});
+
+
+
+app.get("/api/users",function(req,res) 
 {
 	users.find(function(err, cursor)
 	{
@@ -74,6 +95,8 @@ app.get("/api/notify", function (req,res){
 // all variables in URL are ObjectIds. 
 app.get("/api/friends/:user", function (req, res)
 {
+/* 
+remnants from merge attempt, don't know which one will work better..	
 	users.find(function(err, cursor)
 	{ 
 		var query = {"_id": new ObjectID(req.params.user)};
@@ -89,6 +112,38 @@ app.get("/api/friends/:user", function (req, res)
 			return found;
 		});
 	});
+*/
+	console.log("hello");
+	console.log(req.params.user);
+
+	var query = {"_id": req.params.user};
+
+	console.log("users");
+	console.log(users);
+		
+	users.findOne(query, function(err, doc)
+	{
+		if (err) throw err;
+		console.log(JSON.stringify(doc));
+		res.send(JSON.stringify(doc));
+	});
+	/*
+	var result;
+	cursor.each(function(err, doc)
+	{
+		result = doc;
+	});
+	console.log(result);
+	res.send(users.find(query));
+*/
+
+/*	users.find(query, function(err, found)
+	{
+		if (err) throw err;
+
+		res.send(found);
+	});
+*/
 });
 
 app.get("/", function (req, res)
@@ -102,10 +157,10 @@ app.get("/alarms/:user", function(req, res)
 	var query = {"_id": req.params.user};
 	var projection = {"_id": false, "alarms": true};
 
-	users.find(query, projection).toArray(function(err, alarms)
+	users.find(query, projection, function(err, alarms)
 	{
 		if (err) throw err;
-		return alarms;
+		res.send(alarms);
 	});
 });
 
@@ -141,6 +196,12 @@ app.post("/alarms/newAlarm/:user/:year/:month/:day/:hour/:minute", function(req,
 			return;
 		});
 	});
+});
+
+app.get("/", function(req, res)
+{
+	console.log("hi");
+	res.send("hello");
 });
 
 http.createServer(app).listen(app.get("port"), function()

@@ -1,0 +1,38 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'SocialAlarmClock' do
+use_frameworks!
+pod 'Alamofire', '2.0.0-beta.2'
+end
+
+target 'SocialAlarmClockTests' do
+
+end
+
+target 'SocialAlarmClockUITests' do
+
+end
+
+/////////
+        let alarm = calendar.dateFromComponents(components)
+        
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock() {
+            
+            while alarm!.compare(NSDate()) == NSComparisonResult.OrderedAscending
+            {
+                //stall
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock() {
+                let url = NSURL(string: "http://localhost:8000/friends/Test")
+                let session = NSURLSession.sharedSession()
+                
+                let dataTask = session.dataTaskWithURL(url!) {(data, response, error) in
+                    print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                }
+                dataTask!.resume()
+            }
+        }
+        
