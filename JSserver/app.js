@@ -35,7 +35,7 @@ app.get("/api/hardware/buzz", function(req, res){
 	);
 });
 
-app.get("/api/test",function(req,res)
+app.get("/api/users",function(req,res)
 {
 	users.find(function(err, cursor)
 	{
@@ -49,15 +49,23 @@ app.get("/api/test",function(req,res)
 	});	
 });
 
+
+	
+
+
+
+
 // all variables in URL are ObjectIds. 
-app.get("/friends/:user", function (req, res)
+app.get("/api/friends/:user", function (req, res)
 {
 	users.find(function(err, cursor)
 	{
 		var query = {"_id": req.params.user};
+		console.log(query);
 		users.find(query).toArray(function(err, found)
 		{
 			if (err) throw err;
+			console.log(req.params.user);
 			console.log("found");
 			console.log(found);
 			res.send(found);
