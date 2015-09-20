@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F8007571BAE6D7300F29E91 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8007551BAE6D7300F29E91 /* FBSDKLoginKit.framework */; };
+		3F8007581BAE6D7300F29E91 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8007561BAE6D7300F29E91 /* FBSDKCoreKit.framework */; };
+		3F80075A1BAE6F0800F29E91 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8007591BAE6F0800F29E91 /* Bolts.framework */; };
 		83EC46FF1BADDA77002741E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC46FE1BADDA77002741E0 /* AppDelegate.swift */; };
 		83EC47011BADDA77002741E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC47001BADDA77002741E0 /* ViewController.swift */; };
 		83EC47041BADDA77002741E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EC47021BADDA77002741E0 /* Main.storyboard */; };
@@ -16,9 +19,6 @@
 		83EC471F1BADDA77002741E0 /* SocialAlarmClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC471E1BADDA77002741E0 /* SocialAlarmClockUITests.swift */; };
 		83EC472D1BADDD94002741E0 /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC472C1BADDD94002741E0 /* AlarmListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		83EC472F1BAE0244002741E0 /* NewAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC472E1BAE0244002741E0 /* NewAlarmViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		83EC473D1BAE1434002741E0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EC473C1BAE1434002741E0 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		83EC473F1BAE143F002741E0 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EC473E1BAE143F002741E0 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		83EC47411BAE1444002741E0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EC47401BAE1444002741E0 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F8007551BAE6D7300F29E91 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3F8007561BAE6D7300F29E91 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3F8007591BAE6F0800F29E91 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		83EC46FB1BADDA77002741E0 /* SocialAlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialAlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EC46FE1BADDA77002741E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EC47001BADDA77002741E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +60,7 @@
 		83EC473C1BAE1434002741E0 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150910/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		83EC473E1BAE143F002741E0 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150910/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		83EC47401BAE1444002741E0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150910/Bolts.framework"; sourceTree = "<group>"; };
-		83EC47421BAE164C002741E0 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		83EC47421BAE164C002741E0 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "SocialAlarmClock/Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83EC47411BAE1444002741E0 /* Bolts.framework in Frameworks */,
-				83EC473F1BAE143F002741E0 /* FBSDKLoginKit.framework in Frameworks */,
-				83EC473D1BAE1434002741E0 /* FBSDKCoreKit.framework in Frameworks */,
+				3F80075A1BAE6F0800F29E91 /* Bolts.framework in Frameworks */,
+				3F8007571BAE6D7300F29E91 /* FBSDKLoginKit.framework in Frameworks */,
+				3F8007581BAE6D7300F29E91 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,9 @@
 		83EC46F21BADDA77002741E0 = {
 			isa = PBXGroup;
 			children = (
+				3F8007591BAE6F0800F29E91 /* Bolts.framework */,
+				3F8007551BAE6D7300F29E91 /* FBSDKLoginKit.framework */,
+				3F8007561BAE6D7300F29E91 /* FBSDKCoreKit.framework */,
 				83EC47121BADDA77002741E0 /* SocialAlarmClockTests */,
 				83EC471D1BADDA77002741E0 /* SocialAlarmClockUITests */,
 				83EC46FC1BADDA77002741E0 /* Products */,
@@ -428,14 +434,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = /Users/elizabethwei/Documents/FacebookSDK;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocialAlarmClock",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SocialAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elizabethwei.SocialAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/elizabethwei/code/swift_playground/HackMIT-2015/SocialAlarmClock/SocialAlarmClock/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SocialAlarmClock/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -443,14 +455,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = /Users/elizabethwei/Documents/FacebookSDK;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocialAlarmClock",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SocialAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elizabethwei.SocialAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/elizabethwei/code/swift_playground/HackMIT-2015/SocialAlarmClock/SocialAlarmClock/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SocialAlarmClock/Bridging-Header.h";
 			};
 			name = Release;
 		};
