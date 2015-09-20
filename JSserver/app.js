@@ -46,11 +46,11 @@ app.post("/friends/newFriend/:user/:newFriend", function(req, res)
 	{
 		if (err) throw err;
 		query = {"_id": user};
-		var operation = {$push: {"friends", doc["_id"]}};
+		var operation = {$push: {"friends": doc["_id"]}};
 		users.update(query, operation, function(err, doc)
 		{
 			if (err) throw err;
-			return
+			return;
 			// do we need to return anything?
 		});
 	});
@@ -59,7 +59,24 @@ app.post("/friends/newFriend/:user/:newFriend", function(req, res)
 app.post("/alarms/newAlarm/:user/:year/:month/:day/:hour/:minute", function(req, res)
 {
 	var query = {"_id": user};
-//incomplete	
+	var alarm = new Date(year, month, day, hour, minute);
+	
+	users.find(query, function(err, doc)
+	{
+		if (err) throw err;
+		var operation = {$push: {"alarms": alarm}};
+		users.update(query, operation, function(err, doc)
+		{
+			if (err) throw err;
+			return;
+		});
+	});
+});
+
+app.get("/", function(req, res)
+{
+	console.log("hi");
+	res.send("hello");
 });
 
 http.createServer(app).listen(app.get("port"), function()
