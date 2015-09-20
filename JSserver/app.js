@@ -4,7 +4,7 @@ MongoClient = require("mongodb").MongoClient,
 ObjectID = require('mongodb').ObjectID,
 http = require("http"),
 request=require('request')
-var SSE=require('sse-nodejs'); 
+var SSE=require('server-event'); 
 var users;
 
 MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", function(err, db)
@@ -17,15 +17,18 @@ MongoClient.connect("mongodb://main:main1@ds051543.mongolab.com:51543/hackmit", 
 	console.log(db);
 });
 var serverS;
+var sendFunc;
 app.set("port", process.env.PORT || 8080); 
 app.use(express.static('static'));
 
-app.get("/stream",function(req, res){
-	serverS=SSE(res);
+app.get("/stream",SSE,function(req, res){
+	sendFunc=function(res){
+		res.sse('test','test2');
+	};
 });
 app.get("/send",function(req,res){
-	serverS.sendEvent('time','Hello');
-});
+	sendFunc();
+	});
 // BEGIN ROUTES
 app.get("/api/hardware/buzz", function(req, res){
 	/*
@@ -134,4 +137,6 @@ app.post("/alarms/newAlarm/:user/:year/:month/:day/:hour/:minute", function(req,
 http.createServer(app).listen(app.get("port"), function()
 {
 	console.log("Listening on port " + app.get("port"));
+	
 });
+
