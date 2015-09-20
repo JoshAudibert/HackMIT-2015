@@ -11,7 +11,7 @@ MongoClient.connect("mongodb://root:root@ds041673.mongolab.com:41673/hackmit", f
 	users = db.collection("users");
 });
 
-app.set("port", process.env.PORT || 8000);
+app.set("port", process.env.PORT || 8080);
 
 app.get("/api/users",function(req,res) 
 {
