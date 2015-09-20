@@ -4,7 +4,7 @@
 		"express": "4.12.4",
 		"mongodb": "2.0.35", 
 		"request": "",
-		"sse-nodejs":""
+		"events":""
 
 	}
 }
