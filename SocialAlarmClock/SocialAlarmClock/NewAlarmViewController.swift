@@ -29,7 +29,59 @@ class NewAlarmViewController: UIViewController {
         let timediff = Double(hour-currhour) * 60.0 * 60.0 + Double(minutes - currminutes) * 60.0
         notification.fireDate = NSDate(timeIntervalSinceReferenceDate: timediff)
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        //sends get request at alarm time.
+        let alarm = calendar.dateFromComponents(components)
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock() {
+            while alarm!.compare(NSDate()) == NSComparisonResult.OrderedDescending
+            {
+                //stall
+            }
+            NSOperationQueue.mainQueue().addOperationWithBlock{
+                //get the buzzer to go off
+                self.toggle()
+                
+                //popup alert
+                
+                let alertController = UIAlertController(title: "Buzz", message: "Wake up", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Shut up.", style: UIAlertActionStyle.Default, handler: {action in
+                    self.toggle()}
+                ))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            }
+        }
     }
+    
+    func toggle()
+    {
+        let url = NSURL(string: "http://hackmit.suyash.io/api/hardware/buzz")
+        let session = NSURLSession.sharedSession()
+        
+        let dataTask = session.dataTaskWithURL(url!) {(data, response, error) in
+            if let data2 = data
+            {
+                print(NSString(data: data2, encoding: NSUTF8StringEncoding))
+            }
+        }
+        dataTask!.resume()
+    }
+    
+    @IBAction func Toggle() {
+        let url = NSURL(string: "http://hackmit.suyash.io/api/hardware/buzz")
+        let session = NSURLSession.sharedSession()
+        
+        let dataTask = session.dataTaskWithURL(url!) {(data, response, error) in
+            if let data2 = data
+            {
+                print(NSString(data: data2, encoding: NSUTF8StringEncoding))
+            }
+        }
+        dataTask!.resume()
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

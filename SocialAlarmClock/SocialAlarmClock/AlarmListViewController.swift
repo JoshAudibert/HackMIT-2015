@@ -15,7 +15,7 @@ class AlarmListViewController: UITableViewController {
     }
     
     @IBOutlet var alarmsView: UITableView!
-    var alarmsData: [alarm] = [alarm(time: "7:30 AM", friends: ["A", "B"]), alarm(time: "8:30 AM", friends: ["C", "D"])]
+    public var alarmsData: [alarm] = [alarm(time: "7:30 AM", friends: ["A", "B"]), alarm(time: "8:30 AM", friends: ["C", "D"])]
     
     override func viewDidLoad() {
         super.viewDidLoad()
