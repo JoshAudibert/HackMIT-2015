@@ -50,6 +50,9 @@ app.get("/api/users",function(req,res)
 	});	
 }); 
 
+app.get("/api/notify", function (req,res){
+	// tell front end	
+});
 // all variables in URL are ObjectIds. 
 app.get("/api/friends/:user", function (req, res)
 {
