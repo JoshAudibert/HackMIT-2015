@@ -58,7 +58,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home" id="bP5-xh-7As"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="bP5-xh-7As">
+                        <inset key="imageInsets" minX="40" minY="50" maxX="40" maxY="40"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="profileImage" destination="6gg-B4-2Zy" id="Bzh-aC-WtN"/>
                         <outlet property="usernameLabel" destination="R6n-VZ-uLO" id="H97-5k-QS0"/>
@@ -68,10 +70,9 @@
             </objects>
             <point key="canvasLocation" x="1392" y="310"/>
         </scene>
-        <!--Alarms-->
+        <!-- Alarms-->
         <scene sceneID="aBC-Yq-YzI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ula-JL-TfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Slk-IF-yKg" customClass="AlarmListViewController" customModule="SocialAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3IK-f7-KYv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -108,13 +109,16 @@
                             <outlet property="delegate" destination="Slk-IF-yKg" id="1fw-8H-izo"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Alarms" id="LaW-Pd-3Zq"/>
+                    <tabBarItem key="tabBarItem" title=" Alarms" id="LaW-Pd-3Zq">
+                        <inset key="imageInsets" minX="110" minY="140" maxX="110" maxY="120"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="alarmsView" destination="3IK-f7-KYv" id="loX-pa-7Zx"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ula-JL-TfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1392" y="1049"/>
+            <point key="canvasLocation" x="1392" y="1058"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MFf-DW-kgq">
@@ -135,7 +139,7 @@
             </objects>
             <point key="canvasLocation" x="580" y="310"/>
         </scene>
-        <!--New Alarm-->
+        <!--+-->
         <scene sceneID="Xx1-jv-Ju8">
             <objects>
                 <viewController id="Abc-07-tcc" customClass="NewAlarmViewController" customModule="SocialAlarmClock" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +221,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Alarm" id="Xac-5F-iNv"/>
+                    <tabBarItem key="tabBarItem" title="+" id="Xac-5F-iNv">
+                        <inset key="imageInsets" minX="140" minY="150" maxX="140" maxY="130"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="friendInput" destination="tBc-jI-Sbi" id="pcw-go-ll5"/>
                         <outlet property="timePicker" destination="6Rj-42-7MY" id="gsz-1b-I4D"/>
@@ -229,7 +235,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="128" height="128"/>
         <image name="profilepic" width="1024" height="768"/>
     </resources>
 </document>

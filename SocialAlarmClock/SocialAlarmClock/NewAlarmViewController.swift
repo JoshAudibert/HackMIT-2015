@@ -20,6 +20,15 @@ class NewAlarmViewController: UIViewController {
         let minutes = components.minute
         print("\(hour) : \(minutes)")
         print(friendInput.text!)
+        
+        let notification = UILocalNotification()
+        notification.alertBody = "Wake up!"
+        let currcomponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+        let currhour = currcomponents.hour
+        let currminutes = currcomponents.minute
+        let timediff = Double(hour-currhour) * 60.0 * 60.0 + Double(minutes - currminutes) * 60.0
+        notification.fireDate = NSDate(timeIntervalSinceReferenceDate: timediff)
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
     override func viewDidLoad() {
@@ -34,8 +43,8 @@ class NewAlarmViewController: UIViewController {
     
     func dismissKeyboard() {
         self.friendInput.resignFirstResponder()
-        
     }
+    
 
     /*
     // MARK: - Navigation
@@ -47,4 +56,22 @@ class NewAlarmViewController: UIViewController {
     }
     */
 
+}
+
+extension String
+{
+    func toDateTime() -> NSDate
+    {
+        //Create Date Formatter
+        let dateFormatter = NSDateFormatter()
+        
+        //Specify Format of String to Parse
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx"
+        
+        //Parse into NSDate
+        let dateFromString : NSDate = dateFormatter.dateFromString(self)!
+        
+        //Return Parsed Date
+        return dateFromString
+    }
 }
